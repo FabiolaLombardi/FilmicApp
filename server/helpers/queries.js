@@ -1,9 +1,9 @@
 module.exports.user = {
     
-    findEmail: 'SELECT email_users AS email FROM users WHERE email = $1',
-    addUser: 'INSERT INTO users (email_users,name_users,last_users,email_users) VALUES ($1,$2,$3,$4) RETURNING id_users',
+    findEmail: 'SELECT email_users FROM users WHERE email_users = $1',
+    addUser: 'INSERT INTO users (email_users,name_users,last_users,pass_users, id_type_users) VALUES ($1,$2,$3,$4, (SELECT id_type_users FROM type_users WHERE des_type_users = $5)) RETURNING id_users',
     addCart: 'INSERT INTO cart (id_users) VALUES ($1)',
-    findUser: 'SELECT users.id_users AS userId, cart.id_cart AS cartId, users.name_users, users.last_users, users.pass_users, users.email_users FROM users INNER JOIN cart ON cart.id_user = users.id_users WHERE users.email_users = $1',
+    findUser: 'SELECT users.id_users AS userId, cart.id_cart AS cartId, users.name_users AS name, users.last_users AS lastname, users.pass_users AS password, users.email_users AS email FROM users INNER JOIN cart ON cart.id_users = users.id_users WHERE users.email_users = $1',
 
 }
 

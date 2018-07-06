@@ -7,7 +7,8 @@ let controllers = {}
 controllers.signup = (req, res) => {
     db.task('insert-user', async task => {
         let hash = bcrypt.hashSync(req.body.password, 10);
-        const newId = await task.one(userQueries.addUser, [req.body.username, hash, req.body.firstname, req.body.lastname, req.body.email], q => q && q.id_user);
+        const newId = await task.one(userQueries.addUser, [req.body.email, req.body.firstname, req.body.lastname, hash, 'Invited'], q => q && q.id_users);
+        console.log(newId);
         if (newId) {
             await task.none(userQueries.addCart, newId);            
         }
@@ -28,7 +29,7 @@ controllers.signup = (req, res) => {
 
 controllers.login = (req, res) => {
     db.connect().then((obj) => {
-        obj.one(userQueries.findUser, [req.body.username]).then((user) => {
+        obj.one(userQueries.findUser, [req.body.email]).then((user) => {
             obj.done();
             bcrypt.compare(req.body.password, user.password).then((isMatch) => {
                 if (isMatch) {
@@ -52,6 +53,7 @@ controllers.login = (req, res) => {
                 }
             })            
         }).catch((error) => {
+            console.log(error);
             res.status(422).send({
                 status: 422,
                 body: 'User not found',

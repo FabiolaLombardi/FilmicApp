@@ -3,7 +3,7 @@ const express = require('express');
 const isNew = require('./../middlewares/isNew').isNew;
 const isLogged = require('./../middlewares/isLogged');
 // Controllers
-const userControllers = require('./../controllers/users');
+const userControllers = require('./../controllers/user');
 
 let router = express.Router();
 
@@ -13,3 +13,5 @@ router.get('/logout', isLogged.isLoggedIn, userControllers.logout);
 router.get('/auth', userControllers.auth);
 
 router.get('/test', userControllers.test);
+
+module.exports = router;
