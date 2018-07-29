@@ -1,11 +1,4 @@
-.navbar-brand{
-    font-family: 'Alfa Slab One';
-    letter-spacing: 2px;
-    font-style: italic;
-}
-.nav .navbar-brand > a{
-    color: #9c1f4d;
-}
+
 body{
     background-size: cover;
 }
@@ -22,8 +15,9 @@ body{
 
 .modal-content{
     opacity: .95;
-    padding: 0 18px;
-    box-shadow: 0px 0px 3px #848484;
+    padding: 0 0px;
+    box-shadow: 0px 0px 3px;
+    background-color: rgb(51, 49, 49);
 }
 .user-img{
     margin-top: -50px;
@@ -32,8 +26,6 @@ body{
 .user-img img{
     height:200px;
     width: 300px;
-    
-    
 }
 .form-group{
     margin-bottom: 25px;
@@ -47,7 +39,7 @@ body{
 }
 #ficon{
     position: absolute;
-    font-size: 22px;
+    font-size: 15px;
     color: #555e60;
     left: 28px;
     padding-top: 13px;
@@ -59,15 +51,15 @@ button{
 }
 
 .btn{
-    background-color: #9c1f4d;
+    background-color: #7a0026;
     color: #fff;
     font-size: 15px;
     padding: 7px 14px;
     border-radius: 5px;
-    border-bottom: 4px solid #d3346e;
+    
 }
 
 .btn:hover, .btn:focus{
     background-color: #d3346e!important;
-    border-bottom: 4px solid #d3346e!important;
+    
 }
