@@ -56,38 +56,58 @@
                         <th>Monto</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <th>First Item</th>
-                        <th>5</th>
-                        <th>9$</th>
-                    </tr>
-                    <tr>
-                        <th>Second Item</th>
-                        <th>5</th>
-                        <th>9$</th>
-                    </tr>
-                    <tr>
-                        <th>Third Item</th>
-                        <th>5</th>
-                        <th>9$</th>
-                        <th><i></i></th>
-                    </tr>
+                <tbody id="item">
+                    
                 </tbody>
             </table>
             <div class="d-flex flex-row justify-content-end">
-                <div>Total:  $27</div>
+                <div>Total:  </div>
+                
             </div>
             <br>
             <br>
             <br>
             <br>
             <div class="d-flex flex-row justify-content-center">
-                <button type="submit" class="btn" id="boton">Comprar</button>
+                <a href="">
+                <button class="btn" id="boton">Comprar</button>
+            </a>
             </div>
         </div>
     </div>
 
 </body>
+
+<script>
+    let json = {};
+    json = {
+        item : "Home",
+        quantity: 2,
+        price : "8$"
+    }
+    
+    jsonArr = [];
+
+    jsonArr.push(json); 
+    console.log(JSON.stringify(jsonArr));
+
+    var item = document.getElementById("item");
+
+    for(const i in jsonArr){
+        var tr = document.createElement("tr");
+        var element = `
+            <th>${jsonArr[i].item}</th>
+            <th>${jsonArr[i].quantity}</th>
+            <th>${jsonArr[i].price}</th>
+            `;
+
+            tr.innerHTML = element;
+            item.appendChild(tr);
+    }
+
+
+
+
+</script>
 
 </html>
