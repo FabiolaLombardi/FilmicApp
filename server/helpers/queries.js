@@ -27,6 +27,8 @@ module.exports.cart = {
 
     add: 'INSERT INTO cart_product (id_cart, id_product, quantity, date, id_status) VALUES($1,$2,$3,$4, (SELECT id_status FROM status WHERE des_status = \'order\')) RETURNING id_cart_product',
     // deleteItem: 'DELETE FROM cart_product WHERE id_cart = $1 AND id_cart_product = $2',
-    // getItems: 'SELECT cart.id_cart_product AS id, cart.id_product AS idproduct, prod.brand_product AS brand, prod.price_product AS price, prod.name_product AS name, cart.quantity_product AS quantity FROM cart_product AS cart INNER JOIN product AS prod ON prod.id_product = cart.id_product WHERE id_cart = $1',
+    get: 'SELECT cart.id_cart_product AS id, cart.id_product AS idproduct, prod.title_product as title, prod.price_product AS price, prod.des_product AS des, cart.quantity AS quantity, cart.date, S.des_status as status FROM cart_product AS cart INNER JOIN product AS prod ON prod.id_product = cart.id_product INNER JOIN status AS S ON s.id_status = cart.id_status WHERE id_cart = $1 AND S.des_status = $2',
+    getAll: 'SELECT cart.id_cart_product AS id, cart.id_product AS idproduct, prod.title_product as title, prod.price_product AS price, prod.des_product AS des, cart.quantity AS quantity, cart.date, S.des_status as status FROM cart_product AS cart INNER JOIN product AS prod ON prod.id_product = cart.id_product INNER JOIN status AS S ON s.id_status = cart.id_status WHERE id_cart = $1',
+    update: 'UPDATE cart_product SET id_status = (SELECT id_status FROM status WHERE des_status = $1) WHERE id_cart_product = $2',
     // getItem: 'SELECT cart.id_cart_product AS id, cart.id_product AS idproduct, prod.brand_product AS brand, prod.price_product AS price, prod.name_product AS name, cart.quantity_product AS quantity FROM cart_product AS cart INNER JOIN product AS prod ON prod.id_product = cart.id_product WHERE id_cart_product = $1',
 }
