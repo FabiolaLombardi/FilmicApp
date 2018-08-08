@@ -2,11 +2,11 @@
   "name": "shopping-cart",
   "version": "1.0.0",
   "description": "A shoping cart made with NODEJS",
-  "main": "index.js",
+  "main": "./server/server.js",
   "scripts": {
     "start": "cd server && nodemon server"
   },
-  "author": "Jean Lambert & Fabio Pineda",
+  "author": "Jean Lambert, Fabiola Lombardi, Valeria Fernandez, Giovanny Santos & Carlos Di Matteo",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
