@@ -15,7 +15,7 @@
 </head>
 
 <body>
-   <script src="../js/helpers/http.js"></script>
+   <script src="./js/helpers/http.js"></script>
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <!-- <a class="navbar-brand" href="#">FilmicApp</a> -->
@@ -77,103 +77,22 @@
           <div class="handle"></div>
   </section>
   <br><br><br>
-  <!-- <h1 class="display-5" align= "center">CATEGORIAS</h1> -->
+  <h1 class="display-5" align= "center">CATEGORIAS</h1>
   
   <br><br>
   <section >
 
   <div class="container">
     <div class="row" id='categorias'>
-      <!-- <div class="col-sm">
-          <div class="card" >
-              <img class="card-img-top" src="img/Comedia2.jpg" alt="Card image cap">
-              <div class="card-body">
-                <a href="#" class="btn">Ir a Categoria</a>
-              </div>
-            </div>
-      </div>
-      <div class="col-sm">
-          <div class="card" >
-              <img class="card-img-top" src="img/Terror.jpg" alt="Card image cap">
-              <div class="card-body">
-                  <a href="#" class="btn">Ir a Categoria</a>
-              </div>
-            </div>
-      </div>
-      <div class="col-sm">
-          <div class="card" >
-              <img class="card-img-top" src="img/Romance.jpg" alt="Card image cap">
-              <div class="card-body">
-                <a href="#" class="btn">Ir a Categoria</a>
-              </div>
-            </div>
-      </div>
-      <div class="col-sm">
-          <div class="card" >
-              <img class="card-img-top" src="img/Accion.jpg" alt="Card image cap">
-              <div class="card-body">
-                <a href="#" class="btn">Ir a Categoria</a>
-              </div>
-            </div> -->
+    
       </div>
     </div>
     <br><br>
 
-    <!-- <div class="row">
-        <div class="col-sm">
-            <div class="card" >
-                <img class="card-img-top" src="img/Suspenso.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <a href="#" class="btn">Ir a Categoria</a>
-                </div>
-              </div>
-        </div>
-        <div class="col-sm">
-            <div class="card" >
-                <img class="card-img-top" src="img/Drama.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <a href="#" class="btn">Ir a Categoria</a>
-                </div>
-              </div>
-        </div>
-        <div class="col-sm">
-            <div class="card" >
-                <img class="card-img-top" src="img/Documental.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <a href="#" class="btn">Ir a Categoria</a>
-                </div>
-              </div>
-        </div>
-        <div class="col-sm">
-            <div class="card" >
-                <img class="card-img-top" src="img/Productos2.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <a href="#" class="btn">Ir a Categoria</a>
-                </div>
-              </div>
-        </div>
-      </div> -->
-  <!-- </div> -->
 </section>
 
  
-  <script>
-    get('category/get').then((res) => {
-        res.body.map((category,index) =>{
-            let container = document.getElementById('categorias')
-            
-            container.innerHTML+=`
-                          <div class="col-sm">
-                              <div class="card" >
-                                  <img class="card-img-top" src="img/Comedia2.jpg" alt="Card image cap">
-                                  <div class="card-body">
-                                    <a href="catalog.html" class="btn">Ir a ${category.name}</a>
-                                  </div>
-                                </div>
-                          </div>
-                          `
-        })
-    })
+  <script src='./js/product/home.js' >
   </script>
   <script src="js/main.js"></script>
   <script src="js/jquery.js"></script>
