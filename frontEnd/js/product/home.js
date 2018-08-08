@@ -5,7 +5,7 @@ get('category/get').then((res) => {
           container.innerHTML+=`<div class="w-100"></div>`
         }
         container.innerHTML+=`
-                      <div class="col-sm">
+                      <div class="col-4">
                           <div class="card" >
                               <img class="card-img-top" src="img/Comedia2.jpg" alt="Card image cap">
                               <div class="card-body">
