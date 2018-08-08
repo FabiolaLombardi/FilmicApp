@@ -1,8 +1,10 @@
 # FilmicApp
 
-#### A web app where users can buy and rent movies online 
+### A web app where users can buy and rent movies online 
 
 **Back-End developed in _NodeJS with [Express](https://expressjs.com)_**
+
+
 **Front-End developed in _Vanilla_ _HTML,CSS_ and _Javascript_**
 
 
