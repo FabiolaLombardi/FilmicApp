@@ -15,6 +15,8 @@
 </head>
 
 <body>
+   <script src="../js/helpers/http.js"></script>
+
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <!-- <a class="navbar-brand" href="#">FilmicApp</a> -->
     <img src="img/filmicapp2.png" alt="">
@@ -35,16 +37,16 @@
       <ul class="navbar-nav ml-auto">
         
         <li class="nav-item">
-          <a class="nav-link" href="#">Catalogo</a>
+          <a class="nav-link" href="catalog.html">Catalogo</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Carrito</a>
+          <a class="nav-link" href="carrito.html">Carrito</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Iniciar Sesion</a>
+          <a class="nav-link" href="login.html">Iniciar Sesion</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Registrarse</a>
+          <a class="nav-link" href="register.html">Registrarse</a>
         </li>
     
       </ul>
@@ -78,11 +80,11 @@
   <!-- <h1 class="display-5" align= "center">CATEGORIAS</h1> -->
   
   <br><br>
-  <section>
+  <section >
 
   <div class="container">
-    <div class="row">
-      <div class="col-sm">
+    <div class="row" id='categorias'>
+      <!-- <div class="col-sm">
           <div class="card" >
               <img class="card-img-top" src="img/Comedia2.jpg" alt="Card image cap">
               <div class="card-body">
@@ -112,12 +114,12 @@
               <div class="card-body">
                 <a href="#" class="btn">Ir a Categoria</a>
               </div>
-            </div>
+            </div> -->
       </div>
     </div>
     <br><br>
 
-    <div class="row">
+    <!-- <div class="row">
         <div class="col-sm">
             <div class="card" >
                 <img class="card-img-top" src="img/Suspenso.jpg" alt="Card image cap">
@@ -150,13 +152,33 @@
                 </div>
               </div>
         </div>
-      </div>
-  </div>
+      </div> -->
+  <!-- </div> -->
 </section>
 
+ 
+  <script>
+    get('category/get').then((res) => {
+        res.body.map((category,index) =>{
+            let container = document.getElementById('categorias')
+            
+            container.innerHTML+=`
+                          <div class="col-sm">
+                              <div class="card" >
+                                  <img class="card-img-top" src="img/Comedia2.jpg" alt="Card image cap">
+                                  <div class="card-body">
+                                    <a href="catalog.html" class="btn">Ir a ${category.name}</a>
+                                  </div>
+                                </div>
+                          </div>
+                          `
+        })
+    })
+  </script>
   <script src="js/main.js"></script>
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
+
 </body>
 
 </html>

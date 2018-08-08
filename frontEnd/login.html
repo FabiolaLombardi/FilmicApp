@@ -17,6 +17,7 @@
 </head>
 
 <body background="img/bgn.jpg">
+    <script src="../js/helpers/http.js" ></script>
     <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">FilmicApp</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -70,20 +71,22 @@
                 <form action="" class="col-12">
                     <div class="form-group">
                         <i class="fas fa-user" id="ficon"></i>
-                        <input type="text" class="form-control" placeholder="Usuario">
+                        <input type="text" class="form-control" placeholder="Email" 
+                        id="email">
                     </div>
                     <div class="form-group">
                         <i class="fas fa-lock" id="ficon"></i>
-                        <input type="password" class="form-control" placeholder="Contraseña">
+                        <input type="password" class="form-control" placeholder="Contraseña"
+                        id="clave">
                     </div>
-                    <button type="submit" class="btn animated tada">
+                    <button type="button" class="btn animated tada" onclick="login()">
                         <i class="fas fa-sign-in-alt"></i> Iniciar Sesión</button>
                 </form>
             </div>
             <!--END OF MODAL CONTENT-->
         </div>
     </div>
-
+<script src="./js/user/login.js"></script>
 </body>
 
 </html>
