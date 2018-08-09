@@ -4,7 +4,7 @@ module.exports.isLoggedOut = (req, res, next) => {
     else 
         res.send({
             status:304,
-            response: 'There is already an active session',
+            body: 'There is already an active session',
         });        
 }
 
@@ -14,6 +14,6 @@ module.exports.isLoggedIn = (req, res, next) => {
     else
         res.send({
             status: 304,
-            response: 'You must login first',
+            body: 'You must login first',
         });
 }

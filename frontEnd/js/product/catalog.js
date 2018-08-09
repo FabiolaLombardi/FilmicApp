@@ -1,3 +1,4 @@
+
 get('category/get/'+window.location.search.split('=')[1]).then((res) => {
     res.body.map((movie,index) =>{
         let container = document.getElementById('movies')
@@ -13,7 +14,7 @@ get('category/get/'+window.location.search.split('=')[1]).then((res) => {
                                             <p>${movie.description}</p>
                                             <p>Precio: ${movie.price}</p>
                                           </div>
-                                          <input type="number" class="form-control" placeholder="Qty." id="quantity">
+                                          <input type="number" class="form-control"value='1' placeholder="Qty." id="quantity">
                                           <button class="btn" onclick='addToCart(${movie.id})' id="boton">Anadir al Carrito</button>
                                         </div>
                                   </div>
@@ -23,12 +24,12 @@ get('category/get/'+window.location.search.split('=')[1]).then((res) => {
 
 const addToCart = (id) => {
   let q = document.getElementById('quantity').value
-  let json = {id:id,quantity:q}
+  let json = {productId:id,quantity:q}
   post('cart/add',json).then((res) => {
          console.log(res)
          if (res.status===200) {
              console.log(res)
-         window.location.replace('home.html')
+        alert(res.body.message)
          } else {
              alert(res.response)
          }

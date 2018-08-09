@@ -4,7 +4,8 @@
     return new Promise((resolve,reject) => {
             url = `${local}/${url}`
             fetch(url, {
-                method: 'GET'
+                method: 'GET',
+                'credentials':'include'
             })
             .then((res) => res.json())
             .then((data) => {
@@ -25,13 +26,12 @@
             fetch(url, {
                 method: 'POST',
                 body:JSON.stringify(body),
-                withCredentials: 'include',
-                credentials: 'same-origin',
+                credentials: 'include',
                 headers: {
                     'Content-type': 'application/json'
                 }
             })
-            .then((res) => {console.log(res);return res.json()})
+            .then((res) => res.json())
             .then((data) => {
                 console.log(data);
                 resolve(data)
@@ -43,3 +43,12 @@
             })
         })
 }
+
+    const logout = () => {
+        get('user/logout').then((res)=>{
+            if(res.status==200){
+                alert('La sesion fue cerrada exitosamente')
+                window.location.replace('login.html')
+            }
+        })
+    }

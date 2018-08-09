@@ -193,6 +193,12 @@ const dynamic = (page) => {
         case 1:
             console.log(movieHistory);
             container.innerHtml = "";
+            movieHistory = []
+            get('cart/get/record').then((res)=>{
+                if(res.status==200){
+                    movieHistory=res.body
+                }
+            })
             container.innerHTML = movieHistory;
             break;
         case 2:

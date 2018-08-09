@@ -38,7 +38,7 @@ controllers.getAll = async (req, res) => {
     const cartId = req.session.passport.user.cartid;
 
     try {
-        const items = await db.one(cartQueries.getAll, cartId)
+        const items = await db.many(cartQueries.getAll, cartId)
         if (items) {
             send(200, items);
         }
@@ -55,7 +55,7 @@ controllers.get = async (req,res) => {
     const type = req.params.type;
 
     try {
-        const items = await db.one(cartQueries.get, [cartId,type])
+        const items = await db.many(cartQueries.get, [cartId,type])
         if(items) {
             send(200, items);
         }
