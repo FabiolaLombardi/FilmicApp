@@ -74,64 +74,14 @@
             <br>
             <div class="d-flex flex-row justify-content-center">
                 
-                <button class="btn" onclick='buy()' id="boton">Entregar</button>
+                <button class="btn" onclick='buy()' id="boton">Alquilar</button>
             </div>
         </div>
     </div>
 
 </body>
 
-<script>
-   
-    
-    let jsonArr = [];
-    get('cart/get/order').then((res)=>{
-        if(res.status==200) {
-            jsonArr=res.body
+<script src='./js/user/carrito.js' ></script>
 
-    let item = document.getElementById("item");
-    let total = 0
-    for(const i in jsonArr){
-    let tr = document.createElement("tr");
-    let element = `
-        <th>${jsonArr[i].title}</th>
-        <th>${jsonArr[i].idproduct}</th>
-        <th>${jsonArr[i].price}</th>
-        
-        `;
-
-        tr.innerHTML = element;
-        item.appendChild(tr);
-        total+=Number(jsonArr[i].price)
-    }
-        console.log(total)
-        document.getElementById('total').innerHTML=total
-        }else if(res.status==500){
-            document.getElementById('content').innerHTML='No items have been added to cart'
-        } else {
-            alert(res.body)
-            window.location.replace('home.html')
-        }
-        
-    })
-    console.log(JSON.stringify(jsonArr));
-
-    const buy =() =>{
-        jsonArr.map((movie,index,array) => {
-            post('cart/update',{id:movie.id,status:'record'}).then((res)=>{
-                console.log(res)
-                if(array.length-1==index){
-                    window.location.replace('carrito.html')
-                }
-            })
-
-        })
-        
-    }
-
-
-
-
-</script>
 
 </html>
